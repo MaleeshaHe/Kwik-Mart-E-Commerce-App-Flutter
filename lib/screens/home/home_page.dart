@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/models/product_model.dart';
+import 'package:kwik_mart/screens/product_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -208,59 +209,71 @@ class _HomePageState extends State<HomePage> {
                     childAspectRatio: 0.67,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        // color: Colors.grey.shade200,
-                        border: Border.all(
-                          color: Colors.grey.shade200,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetails(
+                              product: products[index],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          // color: Colors.grey.shade200,
+                          border: Border.all(
+                            color: Colors.grey.shade200,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Icon(
-                                Icons.favorite_border_outlined,
-                                color: Colors.grey.shade600,
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Icon(
+                                  Icons.favorite_border_outlined,
+                                  color: Colors.grey.shade600,
+                                ),
                               ),
-                            ),
-                            Image.network(
-                              products[index].image.toString(),
-                              //width: 100,
-                            ),
-                            Align(
-                              alignment: Alignment.bottomLeft,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  CustomPoppinsText(
-                                    text: products[index].name.toString(),
-                                    fontSize: 13,
-                                    textOverflow: TextOverflow.visible,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  CustomPoppinsText(
-                                    text:
-                                        "Rs ${products[index].price.toString()}",
-                                    fontSize: 13,
-                                    textOverflow: TextOverflow.visible,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ],
+                              Image.network(
+                                products[index].image.toString(),
+                                //width: 100,
                               ),
-                            )
-                          ],
+                              Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(
+                                      height: 8,
+                                    ),
+                                    CustomPoppinsText(
+                                      text: products[index].name.toString(),
+                                      fontSize: 13,
+                                      textOverflow: TextOverflow.visible,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    CustomPoppinsText(
+                                      text:
+                                          "Rs ${products[index].price.toString()}",
+                                      fontSize: 13,
+                                      textOverflow: TextOverflow.visible,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );

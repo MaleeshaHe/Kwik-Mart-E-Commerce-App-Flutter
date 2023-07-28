@@ -219,8 +219,9 @@ class _MyCartState extends State<MyCart> {
                 height: 130,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                   color: Colors.white,
                 ),
                 child: Padding(
