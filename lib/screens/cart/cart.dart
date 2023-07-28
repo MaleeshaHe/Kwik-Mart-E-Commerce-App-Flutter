@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/models/product_model.dart';
 
@@ -135,7 +136,7 @@ class _MyCartState extends State<MyCart> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(6.0),
         child: Stack(
           children: [
             ListView.builder(
@@ -150,6 +151,7 @@ class _MyCartState extends State<MyCart> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Image.network(
                           products[index].image.toString(),
@@ -178,26 +180,31 @@ class _MyCartState extends State<MyCart> {
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(),
+                            border: Border.all(color: Colors.grey.shade300),
                           ),
-                          child: const Row(
-                            children: [
-                              Icon(
-                                Icons.remove,
-                                size: 15,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.all(10.0),
-                                child: CustomPoppinsText(
-                                  text: "1",
-                                  fontSize: 12,
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                                left: 10.0, right: 10.0, top: 8, bottom: 8),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.remove,
+                                  size: 15,
                                 ),
-                              ),
-                              Icon(
-                                Icons.add,
-                                size: 15,
-                              ),
-                            ],
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 10.0, right: 10.0),
+                                  child: CustomPoppinsText(
+                                    text: "1",
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.add,
+                                  size: 15,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -205,7 +212,41 @@ class _MyCartState extends State<MyCart> {
                   ),
                 );
               },
-            )
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 130,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomPoppinsText(
+                            text: "Total",
+                            fontSize: 18,
+                          ),
+                          CustomPoppinsText(
+                            text: "Rs 4500.00",
+                            fontSize: 18,
+                          )
+                        ],
+                      ),
+                      CustomButton1(ontap: () {}, text: "Check Out"),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
