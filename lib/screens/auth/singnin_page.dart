@@ -19,6 +19,7 @@ class _SingInPageState extends State<SingInPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SizedBox(
         width: size.width,
         height: size.height,
@@ -26,7 +27,7 @@ class _SingInPageState extends State<SingInPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              width: size.width * 0.6,
+              width: size.width * 0.75,
               image: const AssetImage('assets/images/singinlogo.png'),
             ),
             Padding(
@@ -40,16 +41,14 @@ class _SingInPageState extends State<SingInPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Text(
-                "Please fill your details to login your account",
-                style: GoogleFonts.poppins(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey.shade600,
-                ),
-              ),
+            CustomPoppinsText(
+              text: "Please fill your details to login your account",
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey.shade600,
+            ),
+            const SizedBox(
+              height: 20,
             ),
             CustomTextField(
               lable: "Email",
@@ -62,9 +61,24 @@ class _SingInPageState extends State<SingInPage> {
               isPassword: true,
               controller: _passWordController,
             ),
+            CustomPoppinsText(
+              text: "Forgot Password ?",
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey.shade600,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             const CustomButton1(
               text: 'Sing In',
-            )
+            ),
+            CustomPoppinsText(
+              text: "Don't have an account? Sing Up",
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+              color: Colors.grey.shade600,
+            ),
           ],
         ),
       ),
