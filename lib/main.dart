@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_mart/screens/splash_screen/splash_screen.dart';
+import 'package:kwik_mart/screens/auth/singnin_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Kwik Mart Shopping App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const SingInPage(),
     );
   }
 }
