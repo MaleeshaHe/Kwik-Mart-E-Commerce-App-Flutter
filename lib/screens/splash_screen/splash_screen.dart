@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Animate(
                   effects: [
                     FadeEffect(duration: 500.ms),
-                    ScaleEffect(),
+                    const ScaleEffect(),
                   ],
                   child: Image(
                     width: size.width * 0.3,
@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     FadeEffect(duration: 500.ms),
                   ],
                   child: Padding(
-                    padding: EdgeInsets.only(top: 15, bottom: 20),
+                    padding: const EdgeInsets.only(top: 15, bottom: 20),
                     child: CustomPoppinsText(
                       text: "Kwik Mart",
                       color: Colors.grey.shade500,
