@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
+import 'package:kwik_mart/components/custom_buttons/custom_button_google.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
 
@@ -74,38 +75,7 @@ class _SingInPageState extends State<SingInPage> {
               const CustomButton1(
                 text: 'Sing In',
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(12),
-                  onTap: () {},
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 0.5),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Image(
-                          width: 25,
-                          image: AssetImage('assets/images/googleLogo.png'),
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        CustomPoppinsText(
-                          text: "Sing in with Google",
-                          fontSize: 15,
-                          color: Colors.grey.shade700,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              const CustomButtonGoogle(),
               CustomPoppinsText(
                 text: "Don't have an account? Sing Up",
                 fontSize: 13,
