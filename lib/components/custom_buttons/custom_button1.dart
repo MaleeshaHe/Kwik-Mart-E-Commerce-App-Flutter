@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_mart/components/custom_poppins_text.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton1 extends StatelessWidget {
   final String text;
@@ -13,19 +13,24 @@ class CustomButton1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          color: Colors.green,
-        ),
-        child: Center(
-          child: CustomPoppinsText(
-            text: text,
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            backgroundColor: Colors.green,
+          ),
+          child: Text(
+            text,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),
