@@ -4,6 +4,7 @@ import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
 import 'package:kwik_mart/components/custom_buttons/custom_button_google.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
+import 'package:kwik_mart/screens/auth/singup_page.dart';
 
 class SingInPage extends StatefulWidget {
   const SingInPage({super.key});
@@ -79,11 +80,21 @@ class _SingInPageState extends State<SingInPage> {
               CustomButtonGoogle(
                 ontap: () {},
               ),
-              CustomPoppinsText(
-                text: "Don't have an account? Sing Up",
-                fontSize: 13,
-                fontWeight: FontWeight.w400,
-                color: Colors.grey.shade600,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SingUpPage(),
+                    ),
+                  );
+                },
+                child: CustomPoppinsText(
+                  text: "Don't have an account? Sing Up",
+                  fontSize: 13,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey.shade600,
+                ),
               ),
             ],
           ),
