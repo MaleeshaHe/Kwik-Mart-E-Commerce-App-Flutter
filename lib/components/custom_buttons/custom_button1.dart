@@ -3,8 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton1 extends StatelessWidget {
   final String text;
-
-  const CustomButton1({
+  VoidCallback ontap;
+  CustomButton1({
+    required this.ontap,
     required this.text,
     super.key,
   });
@@ -17,7 +18,7 @@ class CustomButton1 extends StatelessWidget {
         width: double.infinity,
         height: 50,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: ontap,
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

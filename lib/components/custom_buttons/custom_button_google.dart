@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 
 class CustomButtonGoogle extends StatelessWidget {
-  const CustomButtonGoogle({
+  VoidCallback ontap;
+  CustomButtonGoogle({
+    required this.ontap,
     super.key,
   });
 
@@ -12,7 +14,7 @@ class CustomButtonGoogle extends StatelessWidget {
       padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: () {},
+        onTap: ontap,
         child: Container(
           width: double.infinity,
           height: 50,

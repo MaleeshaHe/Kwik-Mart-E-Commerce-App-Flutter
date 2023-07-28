@@ -72,10 +72,13 @@ class _SingInPageState extends State<SingInPage> {
               const SizedBox(
                 height: 20,
               ),
-              const CustomButton1(
+              CustomButton1(
+                ontap: () {},
                 text: 'Sing In',
               ),
-              const CustomButtonGoogle(),
+              CustomButtonGoogle(
+                ontap: () {},
+              ),
               CustomPoppinsText(
                 text: "Don't have an account? Sing Up",
                 fontSize: 13,
