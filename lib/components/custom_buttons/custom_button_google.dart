@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 
+// ignore: must_be_immutable
 class CustomButtonGoogle extends StatelessWidget {
   VoidCallback ontap;
   CustomButtonGoogle({

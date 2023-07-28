@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class CustomButton1 extends StatelessWidget {
   final String text;
   VoidCallback ontap;
