@@ -140,127 +140,135 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(14.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(Icons.menu),
-                Icon(Icons.search),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomPoppinsText(
-              text: "Hello Maleesha",
-              fontSize: 22,
-              color: Colors.grey.shade800,
-              fontWeight: FontWeight.w600,
-            ),
-            CustomPoppinsText(
-              text: "Lest Start Shopping...",
-              fontSize: 16,
-              color: Colors.grey.shade600,
-              fontWeight: FontWeight.w400,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 130.0,
-                autoPlay: true,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(14.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(Icons.menu),
+                  Icon(Icons.search),
+                ],
               ),
-              items: offers.map((i) {
-                return Builder(
-                  builder: (BuildContext context) {
+              const SizedBox(
+                height: 20,
+              ),
+              CustomPoppinsText(
+                text: "Hello Maleesha",
+                fontSize: 22,
+                color: Colors.grey.shade800,
+                fontWeight: FontWeight.w600,
+              ),
+              CustomPoppinsText(
+                text: "Lest Start Shopping...",
+                fontSize: 16,
+                color: Colors.grey.shade600,
+                fontWeight: FontWeight.w400,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 130.0,
+                  autoPlay: true,
+                ),
+                items: offers.map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(i),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: GridView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: products.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.67,
+                  ),
+                  itemBuilder: (context, index) {
                     return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                      width: 100,
+                      height: 100,
                       decoration: BoxDecoration(
+                        // color: Colors.grey.shade200,
+                        border: Border.all(
+                          color: Colors.grey.shade200,
+                        ),
                         borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(i),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: Icon(
+                                Icons.favorite_border_outlined,
+                                color: Colors.grey.shade600,
+                              ),
+                            ),
+                            Image.network(
+                              products[index].image.toString(),
+                              //width: 100,
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  CustomPoppinsText(
+                                    text: products[index].name.toString(),
+                                    fontSize: 13,
+                                    textOverflow: TextOverflow.visible,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  CustomPoppinsText(
+                                    text:
+                                        "Rs ${products[index].price.toString()}",
+                                    fontSize: 13,
+                                    textOverflow: TextOverflow.visible,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
                         ),
                       ),
                     );
                   },
-                );
-              }).toList(),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: GridView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisSpacing: 6,
-                  mainAxisSpacing: 6,
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.65,
                 ),
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      // color: Colors.grey.shade200,
-                      border: Border.all(
-                        color: Colors.grey.shade200,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Icon(
-                              Icons.favorite_border_outlined,
-                              color: Colors.grey.shade600,
-                            ),
-                          ),
-                          Image.network(
-                            products[index].image.toString(),
-                            //width: 100,
-                          ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomPoppinsText(
-                                  text: products[index].name.toString(),
-                                  fontSize: 13,
-                                  textOverflow: TextOverflow.visible,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                                CustomPoppinsText(
-                                  text:
-                                      "Rs ${products[index].price.toString()}",
-                                  fontSize: 13,
-                                  textOverflow: TextOverflow.visible,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

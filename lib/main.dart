@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwik_mart/screens/home/home_page.dart';
+import 'package:kwik_mart/screens/cart/cart.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const MyCart(),
     );
   }
 }
