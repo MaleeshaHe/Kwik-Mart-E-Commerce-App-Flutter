@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: GridView.builder(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: products.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisSpacing: 6,
