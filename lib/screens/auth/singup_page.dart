@@ -5,7 +5,9 @@ import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
 import 'package:kwik_mart/components/custom_buttons/custom_button_google.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
+import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/screens/auth/singnin_page.dart';
+import 'package:logger/logger.dart';
 
 class SingUpPage extends StatefulWidget {
   const SingUpPage({super.key});
@@ -80,7 +82,20 @@ class _SingInPageState extends State<SingUpPage> {
                   height: 20,
                 ),
                 CustomButton1(
-                  ontap: () {},
+                  ontap: () {
+                    if (_emailController.text.isEmpty) {
+                      Logger().e("Please Insert Your Email");
+                    } else if (_passWordController.text.isEmpty) {
+                      Logger().e("Please Insert Your Password");
+                    } else if (_passWordController.text !=
+                        _confirmPassWordController.text) {
+                      Logger().e("Check Your Password");
+                    } else {
+                      AuthController.createUserAccount(
+                          email: _emailController.text,
+                          password: _passWordController.text);
+                    }
+                  },
                   text: 'Sing Up',
                 ),
                 CustomButtonGoogle(
