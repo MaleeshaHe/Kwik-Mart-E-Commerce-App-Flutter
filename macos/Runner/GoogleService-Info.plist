@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>17136520807-b752featfjsphu8povo24gcdokddc6eu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.17136520807-b752featfjsphu8povo24gcdokddc6eu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBzOnZGHvHA0rTe0E6VlL11wHr7kkufLKY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>17136520807</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.kwikMart.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>kwik-mart-store</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kwik-mart-store.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:17136520807:ios:6236f30eeb83a67bc98ec2</string>
+</dict>
+</plist>

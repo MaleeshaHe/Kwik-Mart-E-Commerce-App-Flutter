@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "17136520807",
+    "project_id": "kwik-mart-store",
+    "storage_bucket": "kwik-mart-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17136520807:android:069e93d15f1dcc5dc98ec2",
+        "android_client_info": {
+          "package_name": "com.example.kwik_mart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17136520807-nnbv91l07g5kcjpojni709hi1q9nnvk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU80orlUXDX-fB8JjicHPiPGjua3As-IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17136520807-nnbv91l07g5kcjpojni709hi1q9nnvk8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
