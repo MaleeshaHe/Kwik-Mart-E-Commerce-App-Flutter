@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kwik_mart/screens/auth/singnin_page.dart';
 import 'package:kwik_mart/screens/auth/singup_page.dart';
 import 'package:kwik_mart/screens/home/home_page.dart';
 import 'package:kwik_mart/utils/navigator_utils.dart';
@@ -14,7 +16,7 @@ class AuthController {
         FirebaseAuth.instance.authStateChanges().listen(
           (User? user) {
             if (user == null) {
-              CustomNavigator.goTo(context, const SingUpPage());
+              CustomNavigator.goTo(context, const SingInPage());
               Logger().e('User is currently signed out!');
             } else {
               CustomNavigator.goTo(context, const HomePage());
@@ -48,6 +50,25 @@ class AuthController {
     }
   }
 
+  //Sign In to User Account
+  static Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
   //Create User Account with Email and Password
   static Future<void> createUserAccount(
       {required String email, required String password}) async {
@@ -57,6 +78,7 @@ class AuthController {
         email: email,
         password: password,
       );
+
       Logger().i(credential.user!.uid);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

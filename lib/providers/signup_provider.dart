@@ -22,7 +22,15 @@ class SignUpProvider extends ChangeNotifier {
       Logger().e("Check Your Password");
     } else {
       AuthController.createUserAccount(
-          email: _emailController.text, password: _passWordController.text);
+        email: _emailController.text,
+        password: _passWordController.text,
+      ).then((value) => clearTextField());
     }
+  }
+
+  void clearTextField() {
+    _emailController.text = "";
+    _passWordController.text = "";
+    _confirmPassWordController.text = "";
   }
 }
