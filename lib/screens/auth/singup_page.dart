@@ -5,10 +5,8 @@ import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
 import 'package:kwik_mart/components/custom_buttons/custom_button_google.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
-import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/providers/signup_provider.dart';
 import 'package:kwik_mart/screens/auth/singnin_page.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
 class SingUpPage extends StatefulWidget {
@@ -19,11 +17,6 @@ class SingUpPage extends StatefulWidget {
 }
 
 class _SingInPageState extends State<SingUpPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passWordController = TextEditingController();
-  final TextEditingController _confirmPassWordController =
-      TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

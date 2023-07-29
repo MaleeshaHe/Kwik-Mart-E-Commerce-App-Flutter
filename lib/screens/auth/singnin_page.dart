@@ -18,9 +18,6 @@ class SingInPage extends StatefulWidget {
 }
 
 class _SingInPageState extends State<SingInPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passWordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

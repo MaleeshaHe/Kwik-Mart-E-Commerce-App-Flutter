@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kwik_mart/screens/auth/singnin_page.dart';
-import 'package:kwik_mart/screens/auth/singup_page.dart';
-import 'package:kwik_mart/screens/home/home_page.dart';
+import 'package:kwik_mart/screens/home/main_screen.dart';
 import 'package:kwik_mart/utils/navigator_utils.dart';
 import 'package:logger/logger.dart';
 
@@ -19,7 +18,7 @@ class AuthController {
               CustomNavigator.goTo(context, const SingInPage());
               Logger().e('User is currently signed out!');
             } else {
-              CustomNavigator.goTo(context, const HomePage());
+              CustomNavigator.goTo(context, const MainScreen());
               Logger().e('User is signed in! --- $user');
             }
           },
