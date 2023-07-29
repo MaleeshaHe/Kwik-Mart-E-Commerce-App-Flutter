@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
+import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/models/product_model.dart';
 import 'package:kwik_mart/screens/product_view.dart';
 
@@ -142,19 +143,25 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(14.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Icon(Icons.menu),
-                  Icon(Icons.search),
+                  const Icon(Icons.menu),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  const Icon(Icons.search),
+                  IconButton(
+                    onPressed: () {
+                      AuthController.singOut();
+                    },
+                    icon: const Icon(Icons.logout),
+                  )
                 ],
-              ),
-              const SizedBox(
-                height: 20,
               ),
               CustomPoppinsText(
                 text: "Hello Maleesha",

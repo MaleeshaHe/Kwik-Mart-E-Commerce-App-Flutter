@@ -26,6 +26,28 @@ class AuthController {
     );
   }
 
+  //Sign Out User
+  static Future<void> singOut() async {
+    await FirebaseAuth.instance.signOut();
+    Logger().i("User Sing Out");
+  }
+
+  //Sign In to User Account
+  static Future<void> signInToAccount(
+      {required String email, required String password}) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      Logger().i(credential.user!.uid);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        Logger().e('No user found for that email..');
+      } else if (e.code == 'wrong-password') {
+        Logger().e('Worng password provided for that user...');
+      }
+    }
+  }
+
   //Create User Account with Email and Password
   static Future<void> createUserAccount(
       {required String email, required String password}) async {
