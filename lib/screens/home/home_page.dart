@@ -205,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,
                     crossAxisCount: 2,
-                    childAspectRatio: 0.67,
+                    childAspectRatio: 0.64,
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(

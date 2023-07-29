@@ -20,7 +20,10 @@ class CustomButtonGoogle extends StatelessWidget {
           width: double.infinity,
           height: 50,
           decoration: BoxDecoration(
-            border: Border.all(width: 0.5),
+            border: Border.all(
+              width: 1,
+              color: Colors.grey.shade500,
+            ),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(

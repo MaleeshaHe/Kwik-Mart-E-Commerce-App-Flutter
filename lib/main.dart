@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwik_mart/screens/auth/singnin_page.dart';
 import 'package:kwik_mart/screens/home/home_page.dart';
 
 void main() {
