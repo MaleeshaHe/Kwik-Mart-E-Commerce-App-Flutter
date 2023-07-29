@@ -7,5 +7,6 @@ class HomePageProvider extends ChangeNotifier {
 
   void changeIndex(int index) {
     _currentIndex = index;
+    notifyListeners();
   }
 }
