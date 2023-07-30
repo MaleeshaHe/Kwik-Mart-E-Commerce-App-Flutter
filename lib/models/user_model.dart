@@ -16,6 +16,6 @@ class UserModel {
         name: map['name'],
         userImage: map['userImage'],
         email: map['email'],
-        uid: map['map']);
+        uid: map['uid']);
   }
 }

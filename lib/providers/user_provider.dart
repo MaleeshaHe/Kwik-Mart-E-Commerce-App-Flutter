@@ -46,9 +46,7 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateData(name) async {
-    AuthController().updateProfile(_user!.uid, name).then((value) {
-      Logger().i("User Updated");
-    });
+  Future<void> updateData(String name) async {
+    AuthController().updateProfile(_user!.uid, name);
   }
 }
