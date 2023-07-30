@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kwik_mart/models/user_model.dart';
 import 'package:logger/logger.dart';
 
 class AuthController {
@@ -39,19 +41,25 @@ class AuthController {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
-
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   //Create User Account with Email and Password
-  static Future<void> createUserAccount(
-      {required String email, required String password}) async {
+  Future<void> createUserAccount(
+      {required String email,
+      required String password,
+      required String name}) async {
     try {
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
         email: email,
         password: password,
+      )
+          .then(
+        (value) {
+          addUser(value.user!.uid, name, value.user!.email);
+        },
       );
 
       Logger().i(credential.user!.uid);
@@ -67,6 +75,32 @@ class AuthController {
       }
     } catch (e) {
       Logger().e(e);
+    }
+  }
+
+  // Save User data
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+  Future<void> addUser(String uid, String name, String? email) {
+    return users
+        .doc(uid)
+        .set({
+          'name': name,
+          'userImage':
+              "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+          'uid': uid,
+          'email': email
+        })
+        .then((value) => Logger().i("User Added"))
+        .catchError((error) => Logger().e(error));
+  }
+
+  //Fetch User data
+  Future<UserModel?> getUserData(String uid) async {
+    try {
+      DocumentSnapshot userData = await users.doc(uid).get();
+      return UserModel.fromMap(userData.data() as Map<String, dynamic>);
+    } catch (e) {
+      return null;
     }
   }
 }

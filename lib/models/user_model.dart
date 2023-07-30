@@ -10,4 +10,12 @@ class UserModel {
     required this.email,
     required this.uid,
   });
+
+  factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+        name: map['name'],
+        userImage: map['userImage'],
+        email: map['email'],
+        uid: map['map']);
+  }
 }

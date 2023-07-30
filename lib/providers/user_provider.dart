@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/models/user_model.dart';
+import 'package:kwik_mart/providers/profile_provider.dart';
+import 'package:kwik_mart/screens/home/profile_page/profile_page.dart';
 import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
 
 import '../screens/auth/singnin_page.dart';
 import '../screens/home/main_screen.dart';
@@ -17,23 +21,28 @@ class UserProvider extends ChangeNotifier {
       const Duration(seconds: 3),
       () {
         FirebaseAuth.instance.authStateChanges().listen(
-          (User? user) {
+          (User? user) async {
             if (user == null) {
               CustomNavigator.goTo(context, const SingInPage());
               Logger().e('User is currently signed out!');
             } else {
-              _user = UserModel(
-                name: "",
-                userImage: "",
-                email: user.email.toString(),
-                uid: user.uid,
+              fetchData(user.uid, context).then(
+                (value) {
+                  CustomNavigator.goTo(context, const MainScreen());
+                  Logger().i('User is signed in! --- $user');
+                },
               );
-              CustomNavigator.goTo(context, const MainScreen());
-              Logger().e('User is signed in! --- $user');
             }
           },
         );
       },
     );
+  }
+
+  Future<void> fetchData(uid, context) async {
+    _user = await AuthController().getUserData(uid);
+    Provider.of<ProfileProvider>(context, listen: false)
+        .setUserName(_user!.name.toString());
+    notifyListeners();
   }
 }

@@ -35,7 +35,7 @@ class _SingInPageState extends State<SingUpPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image(
-                      width: size.width * 0.75,
+                      width: size.width * 0.60,
                       image: const AssetImage('assets/images/singinlogo.png'),
                     ),
                     Padding(
@@ -57,6 +57,11 @@ class _SingInPageState extends State<SingUpPage> {
                     ),
                     const SizedBox(
                       height: 20,
+                    ),
+                    CustomTextField(
+                      lable: "Name",
+                      prefixIcon: Icons.people_outline_outlined,
+                      controller: value.nameController,
                     ),
                     CustomTextField(
                       lable: "Email",

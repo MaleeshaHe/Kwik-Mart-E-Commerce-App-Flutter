@@ -26,7 +26,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
       child: SizedBox(
-        height: 55,
+        height: 52,
         child: TextField(
           controller: widget.controller,
           obscureText: widget.isPassword == true
