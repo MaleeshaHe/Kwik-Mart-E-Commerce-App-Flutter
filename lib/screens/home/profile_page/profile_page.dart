@@ -25,13 +25,23 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.network(
-                    Provider.of<UserProvider>(context)
-                        .userData!
-                        .userImage
-                        .toString(),
-                    width: 150,
-                    height: 150,
+                  InkWell(
+                    onTap: () {
+                      value.pickImage();
+                    },
+                    child: value.image.path != ""
+                        ? CircleAvatar(
+                            radius: 60,
+                            backgroundImage: FileImage(value.image),
+                          )
+                        : Image.network(
+                            Provider.of<UserProvider>(context)
+                                .userData!
+                                .userImage
+                                .toString(),
+                            width: 150,
+                            height: 150,
+                          ),
                   ),
                   const SizedBox(
                     height: 15,
@@ -57,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   CustomButton1(
                     ontap: () {
-                      value.updateData(value.nameController.text);
+                      value.updateProfile();
                     },
                     text: "Update",
                   ),

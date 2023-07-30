@@ -1,6 +1,11 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
+import 'package:kwik_mart/controllers/storeage_controller.dart';
 import 'package:kwik_mart/models/user_model.dart';
 import 'package:kwik_mart/screens/home/profile_page/profile_page.dart';
 import 'package:logger/logger.dart';
@@ -13,6 +18,14 @@ import '../utils/navigator_utils.dart';
 class UserProvider extends ChangeNotifier {
   UserModel? _user;
   UserModel? get userData => _user;
+
+  final TextEditingController _nameController = TextEditingController();
+
+  TextEditingController get nameController => _nameController;
+
+  ImagePicker picker = ImagePicker();
+  File _image = File("");
+  File get image => image;
 
   //Check current User Auth State
   Future<void> checkAuthState(BuildContext context) async {
@@ -44,16 +57,37 @@ class UserProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateData(String name) async {
-    AuthController().updateProfile(_user!.uid, name);
+  // Future<void> updateData() async {
+  //   AuthController().updateProfile(_user!.uid, name);
+  // }
+
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+  //Update profile
+  Future<void> updateProfile() async {
+    users.doc(_user!.uid).update({"name": _nameController.text}).then(
+      (value) {
+        Logger().i("User Updated");
+      },
+    );
   }
-
-  final TextEditingController _nameController = TextEditingController();
-
-  TextEditingController get nameController => _nameController;
 
   void setUserName(String name) {
     _nameController.text = name;
     notifyListeners();
+  }
+
+  Future<void> pickImage() async {
+    XFile? pickedImage = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      _image = File(pickedImage.path);
+      notifyListeners();
+      Logger().i(_image.path);
+    } else {
+      Logger().e("Try Again");
+    }
+  }
+
+  Future<void> uploadUserImage() async {
+    StorageController().uploadImage(_image);
   }
 }
