@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_mart/firebase_options.dart';
 import 'package:kwik_mart/providers/homepage_provider.dart';
+import 'package:kwik_mart/providers/profile_provider.dart';
 import 'package:kwik_mart/providers/signin_provider.dart';
 import 'package:kwik_mart/providers/signup_provider.dart';
 import 'package:kwik_mart/screens/splash_screen/splash_screen.dart';
@@ -23,6 +24,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => HomePageProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProfileProvider(),
         )
       ],
       child: const MyApp(),

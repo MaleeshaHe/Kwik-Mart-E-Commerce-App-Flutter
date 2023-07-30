@@ -10,7 +10,7 @@ class AuthController {
   //Check current User Auth State
   static Future<void> checkAuthState(BuildContext context) async {
     Future.delayed(
-      const Duration(seconds: 6),
+      const Duration(seconds: 3),
       () {
         FirebaseAuth.instance.authStateChanges().listen(
           (User? user) {
