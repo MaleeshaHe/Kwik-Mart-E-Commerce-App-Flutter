@@ -7,26 +7,6 @@ import 'package:kwik_mart/utils/navigator_utils.dart';
 import 'package:logger/logger.dart';
 
 class AuthController {
-  //Check current User Auth State
-  static Future<void> checkAuthState(BuildContext context) async {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        FirebaseAuth.instance.authStateChanges().listen(
-          (User? user) {
-            if (user == null) {
-              CustomNavigator.goTo(context, const SingInPage());
-              Logger().e('User is currently signed out!');
-            } else {
-              CustomNavigator.goTo(context, const MainScreen());
-              Logger().e('User is signed in! --- $user');
-            }
-          },
-        );
-      },
-    );
-  }
-
   //Sign Out User
   static Future<void> singOut() async {
     await FirebaseAuth.instance.signOut();

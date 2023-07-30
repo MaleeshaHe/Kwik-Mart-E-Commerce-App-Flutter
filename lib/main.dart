@@ -5,6 +5,7 @@ import 'package:kwik_mart/providers/homepage_provider.dart';
 import 'package:kwik_mart/providers/profile_provider.dart';
 import 'package:kwik_mart/providers/signin_provider.dart';
 import 'package:kwik_mart/providers/signup_provider.dart';
+import 'package:kwik_mart/providers/user_provider.dart';
 import 'package:kwik_mart/screens/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +28,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => ProfileProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
         )
       ],
       child: const MyApp(),
