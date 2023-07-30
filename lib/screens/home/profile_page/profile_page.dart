@@ -3,7 +3,6 @@ import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
-import 'package:kwik_mart/providers/profile_provider.dart';
 import 'package:kwik_mart/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
-        child: Consumer<ProfileProvider>(
+        child: Consumer<UserProvider>(
           builder: (context, value, child) {
             return SingleChildScrollView(
               child: Column(
@@ -58,8 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   CustomButton1(
                     ontap: () {
-                      Provider.of<UserProvider>(context, listen: false)
-                          .updateData(value.nameController.text);
+                      value.updateData(value.nameController.text);
                     },
                     text: "Update",
                   ),

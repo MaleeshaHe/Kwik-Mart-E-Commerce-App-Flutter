@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/models/user_model.dart';
-import 'package:kwik_mart/providers/profile_provider.dart';
 import 'package:kwik_mart/screens/home/profile_page/profile_page.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
@@ -41,12 +40,20 @@ class UserProvider extends ChangeNotifier {
 
   Future<void> fetchData(uid, context) async {
     _user = await AuthController().getUserData(uid);
-    Provider.of<ProfileProvider>(context, listen: false)
-        .setUserName(_user!.name.toString());
+    setUserName(_user!.name.toString());
     notifyListeners();
   }
 
   Future<void> updateData(String name) async {
     AuthController().updateProfile(_user!.uid, name);
+  }
+
+  final TextEditingController _nameController = TextEditingController();
+
+  TextEditingController get nameController => _nameController;
+
+  void setUserName(String name) {
+    _nameController.text = name;
+    notifyListeners();
   }
 }
