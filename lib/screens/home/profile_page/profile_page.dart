@@ -4,6 +4,7 @@ import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/providers/profile_provider.dart';
+import 'package:kwik_mart/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -32,9 +33,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(
                   height: 15,
                 ),
-                const CustomPoppinsText(
+                CustomPoppinsText(
                   fontWeight: FontWeight.w400,
-                  text: "maleesh@gmaill.com",
+                  text: Provider.of<UserProvider>(context)
+                      .userData!
+                      .email
+                      .toString(),
                   fontSize: 15,
                 ),
                 const SizedBox(

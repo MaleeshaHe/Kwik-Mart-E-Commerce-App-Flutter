@@ -9,6 +9,7 @@ import '../utils/navigator_utils.dart';
 
 class UserProvider extends ChangeNotifier {
   UserModel? _user;
+  UserModel? get userData => _user;
 
   //Check current User Auth State
   Future<void> checkAuthState(BuildContext context) async {
@@ -21,6 +22,12 @@ class UserProvider extends ChangeNotifier {
               CustomNavigator.goTo(context, const SingInPage());
               Logger().e('User is currently signed out!');
             } else {
+              _user = UserModel(
+                name: "",
+                userImage: "",
+                email: user.email.toString(),
+                uid: user.uid,
+              );
               CustomNavigator.goTo(context, const MainScreen());
               Logger().e('User is signed in! --- $user');
             }

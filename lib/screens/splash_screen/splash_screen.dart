@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
-import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
