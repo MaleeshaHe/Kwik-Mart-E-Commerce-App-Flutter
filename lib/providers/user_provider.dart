@@ -45,4 +45,10 @@ class UserProvider extends ChangeNotifier {
         .setUserName(_user!.name.toString());
     notifyListeners();
   }
+
+  Future<void> updateData(name) async {
+    AuthController().updateProfile(_user!.uid, name).then((value) {
+      Logger().i("User Updated");
+    });
+  }
 }

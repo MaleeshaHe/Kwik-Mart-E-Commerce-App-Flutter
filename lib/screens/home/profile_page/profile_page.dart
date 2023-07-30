@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kwik_mart/components/custom_buttons/custom_button1.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
@@ -16,8 +15,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  User? user = FirebaseAuth.instance.currentUser;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,7 +26,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.network(user!.photoURL.toString()),
+                  Image.network(
+                    Provider.of<UserProvider>(context)
+                        .userData!
+                        .userImage
+                        .toString(),
+                    width: 150,
+                    height: 150,
+                  ),
                   const SizedBox(
                     height: 15,
                   ),
@@ -53,7 +57,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: 15,
                   ),
                   CustomButton1(
-                    ontap: () {},
+                    ontap: () {
+                      Provider.of<UserProvider>(context, listen: false)
+                          .updateData(value.nameController.text);
+                    },
                     text: "Update",
                   ),
                   const SizedBox(

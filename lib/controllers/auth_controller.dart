@@ -103,4 +103,9 @@ class AuthController {
       return null;
     }
   }
+
+  //Update profile
+  Future<void> updateProfile(uid, name) async {
+    users.doc(uid).set({"name": name});
+  }
 }
