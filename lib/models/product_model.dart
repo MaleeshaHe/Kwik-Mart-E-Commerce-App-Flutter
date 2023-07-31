@@ -1,6 +1,6 @@
 class Product {
   String? description;
-  int? id;
+  String? id;
   String? image;
   String? name;
   double? price;
@@ -14,4 +14,15 @@ class Product {
     required this.price,
     required this.type,
   });
+
+  factory Product.fromJson(Map<String, dynamic> map) {
+    return Product(
+      description: map["description"],
+      id: map["id"],
+      image: map["image"],
+      name: map["name"],
+      price: double.parse(map["price"]),
+      type: map["type"],
+    );
+  }
 }

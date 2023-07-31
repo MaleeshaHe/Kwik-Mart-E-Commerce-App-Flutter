@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kwik_mart/controllers/storeage_controller.dart';
+import 'package:kwik_mart/models/product_model.dart';
 import 'package:kwik_mart/utils/custom_dialog.dart';
 
 class AdminProvider extends ChangeNotifier {
@@ -40,13 +41,19 @@ class AdminProvider extends ChangeNotifier {
       DocumentReference productDoc = await product.add({
         "name": _nameController.text,
         "description": _descriptionController.text,
-        "price": _priceController,
-        "type": _typeController,
+        "price": _priceController.text,
+        "type": _typeController.text,
         "image": imageUrl,
       }).then((value) {
         product.doc(value.id).update({"id": value.id});
         CustomDialog.toast(context, "Product Added");
         CustomDialog.dismiss(context);
+        _descriptionController.clear();
+        _nameController.clear();
+        _priceController.clear();
+        _typeController.clear();
+        _image = File("");
+        notifyListeners();
         return value;
       });
     }
@@ -60,5 +67,15 @@ class AdminProvider extends ChangeNotifier {
     } else {
       CustomDialog.toast(context, "Image Picker Canelled");
     }
+  }
+
+  Future<List<Product>> fetchProducts() async {
+    QuerySnapshot snapshot = await product.get();
+    List<Product> products = [];
+    for (var e in snapshot.docs) {
+      Product product = Product.fromJson(e.data() as Map<String, dynamic>);
+      products.add(product);
+    }
+    return products;
   }
 }

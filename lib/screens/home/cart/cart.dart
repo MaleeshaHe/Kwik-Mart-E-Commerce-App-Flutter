@@ -12,116 +12,116 @@ class MyCart extends StatefulWidget {
 
 class _MyCartState extends State<MyCart> {
   List<Product> products = [
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD",
-      price: 460.00,
-      type: "electronic",
-    ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
   ];
 
   @override

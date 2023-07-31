@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/models/product_model.dart';
+import 'package:kwik_mart/providers/admin_provider.dart';
 import 'package:kwik_mart/screens/product_view.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,115 +28,115 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<Product> products = [
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of Smart Watch T800 Ultra 2023 New Series 8 Ultra Smart Watch Waterproof Sport Wireless Charger",
-      id: 002,
-      image:
-          "https://static-01.daraz.lk/p/8e621e9c5cd79bed609b901ce1cd7969.jpg_720x720.jpg_.webp",
-      name: "Smart Watch T800 Ultra 2023",
-      price: 3550.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "UT501A Insulation testers is used to measure the insulation resistance of electrical equipment and household appliances. This is done by measuring the insulation resistance between electrical circuits or between circuits and ground. UT500 series can measure insulation resistance, AC  Voltage, low resistance, PI (Polarization Index) and DAR (Dielectric Absorption). These are ideal tools for ensuring transformers, genera-tors, high voltage motors, power capacitors, power cables, arresters and other electricale quipment that can operate in a safe and accurate manner.",
-      id: 003,
-      image:
-          "https://static-01.daraz.lk/p/1788d3681267b0c1e8eb495d517babd9.jpg_720x720.jpg_.webp",
-      name: "Insulation resistance tester Uni-T UT501A",
-      price: 12460.00,
-      type: "electronic",
-    ),
-    Product(
-      description: "Product details of Digital Multimeter 830DT",
-      id: 004,
-      image:
-          "https://static-01.daraz.lk/p/2d2298b0a18d20fc13f4d590aa0e7c9e.jpg_720x720.jpg_.webp",
-      name: "Digital Multimeter 830DT",
-      price: 1460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
-    Product(
-      description:
-          "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
-      id: 001,
-      image:
-          "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
-      name: "HDMI Cable 1080P Full HD 1.5M",
-      price: 460.00,
-      type: "electronic",
-    ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of Smart Watch T800 Ultra 2023 New Series 8 Ultra Smart Watch Waterproof Sport Wireless Charger",
+    //   id: 002,
+    //   image:
+    //       "https://static-01.daraz.lk/p/8e621e9c5cd79bed609b901ce1cd7969.jpg_720x720.jpg_.webp",
+    //   name: "Smart Watch T800 Ultra 2023",
+    //   price: 3550.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "UT501A Insulation testers is used to measure the insulation resistance of electrical equipment and household appliances. This is done by measuring the insulation resistance between electrical circuits or between circuits and ground. UT500 series can measure insulation resistance, AC  Voltage, low resistance, PI (Polarization Index) and DAR (Dielectric Absorption). These are ideal tools for ensuring transformers, genera-tors, high voltage motors, power capacitors, power cables, arresters and other electricale quipment that can operate in a safe and accurate manner.",
+    //   id: 003,
+    //   image:
+    //       "https://static-01.daraz.lk/p/1788d3681267b0c1e8eb495d517babd9.jpg_720x720.jpg_.webp",
+    //   name: "Insulation resistance tester Uni-T UT501A",
+    //   price: 12460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description: "Product details of Digital Multimeter 830DT",
+    //   id: 004,
+    //   image:
+    //       "https://static-01.daraz.lk/p/2d2298b0a18d20fc13f4d590aa0e7c9e.jpg_720x720.jpg_.webp",
+    //   name: "Digital Multimeter 830DT",
+    //   price: 1460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
+    // Product(
+    //   description:
+    //       "Product details of HDMI Cable 1080P Full HD 1.5M, 3M, 5M, 10M Gold Plated Video Cables 3D HDMI-Compatible Flat Cable For HDTV PS Splitter",
+    //   id: 001,
+    //   image:
+    //       "https://static-01.daraz.lk/p/825a0d14604528f01b1ff003dc32f33c.jpg",
+    //   name: "HDMI Cable 1080P Full HD 1.5M",
+    //   price: 460.00,
+    //   type: "electronic",
+    // ),
   ];
 
   @override
@@ -205,86 +207,101 @@ class _HomePageState extends State<HomePage> {
                 height: 20,
               ),
               Expanded(
-                child: GridView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: products.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.64,
-                  ),
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProductDetails(
-                              product: products[index],
-                            ),
+                child: FutureBuilder(
+                    future: Provider.of<AdminProvider>(context, listen: false)
+                        .fetchProducts(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        List<Product> products = snapshot.data!;
+                        return GridView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: products.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
+                            crossAxisCount: 2,
+                            childAspectRatio: 0.64,
                           ),
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProductDetails(
+                                      product: products[index],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  // color: Colors.grey.shade200,
+                                  border: Border.all(
+                                    color: Colors.grey.shade200,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(6.0),
+                                  child: Column(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Icon(
+                                          Icons.favorite_border_outlined,
+                                          color: Colors.grey.shade600,
+                                        ),
+                                      ),
+                                      Image.network(
+                                        products[index].image.toString(),
+                                        //width: 100,
+                                      ),
+                                      Align(
+                                        alignment: Alignment.bottomLeft,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(
+                                              height: 8,
+                                            ),
+                                            CustomPoppinsText(
+                                              text: products[index]
+                                                  .name
+                                                  .toString(),
+                                              fontSize: 13,
+                                              textOverflow:
+                                                  TextOverflow.visible,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                            const SizedBox(
+                                              height: 4,
+                                            ),
+                                            CustomPoppinsText(
+                                              text:
+                                                  "Rs ${products[index].price.toString()}",
+                                              fontSize: 13,
+                                              textOverflow:
+                                                  TextOverflow.visible,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                         );
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          // color: Colors.grey.shade200,
-                          border: Border.all(
-                            color: Colors.grey.shade200,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Icon(
-                                  Icons.favorite_border_outlined,
-                                  color: Colors.grey.shade600,
-                                ),
-                              ),
-                              Image.network(
-                                products[index].image.toString(),
-                                //width: 100,
-                              ),
-                              Align(
-                                alignment: Alignment.bottomLeft,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const SizedBox(
-                                      height: 8,
-                                    ),
-                                    CustomPoppinsText(
-                                      text: products[index].name.toString(),
-                                      fontSize: 13,
-                                      textOverflow: TextOverflow.visible,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                    const SizedBox(
-                                      height: 4,
-                                    ),
-                                    CustomPoppinsText(
-                                      text:
-                                          "Rs ${products[index].price.toString()}",
-                                      fontSize: 13,
-                                      textOverflow: TextOverflow.visible,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                      }
+                      return CircularProgressIndicator();
+                    }),
               )
             ],
           ),
