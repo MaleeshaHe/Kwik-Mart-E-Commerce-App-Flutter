@@ -65,7 +65,8 @@ class UserProvider extends ChangeNotifier {
   Future<void> updateProfile(BuildContext context) async {
     CustomDialog.show(context);
     if (_image.path != "") {
-      String imageUrl = await StorageController().uploadImage(_image);
+      String imageUrl =
+          await StorageController().uploadImage(_image, "User Image");
 
       users.doc(_user!.uid).update(
           {"name": _nameController.text, "userImage": imageUrl}).then((value) {
