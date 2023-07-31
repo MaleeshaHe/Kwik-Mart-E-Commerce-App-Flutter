@@ -7,12 +7,14 @@ class CustomTextField extends StatefulWidget {
   final String lable;
   final IconData prefixIcon;
   bool isObscure = false;
+  TextInputType inputType;
 
   CustomTextField({
     required this.lable,
     required this.prefixIcon,
     required this.controller,
     this.isPassword = false,
+    this.inputType = TextInputType.text,
     super.key,
   });
 
@@ -28,6 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: SizedBox(
         height: 52,
         child: TextField(
+          keyboardType: widget.inputType,
           controller: widget.controller,
           obscureText: widget.isPassword == true
               ? widget.isObscure == false

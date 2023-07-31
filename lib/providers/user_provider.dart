@@ -7,9 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/controllers/storeage_controller.dart';
 import 'package:kwik_mart/models/user_model.dart';
-import 'package:kwik_mart/screens/home/profile_page/profile_page.dart';
+import 'package:kwik_mart/utils/custom_dialog.dart';
 import 'package:logger/logger.dart';
-import 'package:provider/provider.dart';
 
 import '../screens/auth/singnin_page.dart';
 import '../screens/home/main_screen.dart';
@@ -63,12 +62,24 @@ class UserProvider extends ChangeNotifier {
 
   CollectionReference users = FirebaseFirestore.instance.collection('Users');
   //Update profile
-  Future<void> updateProfile() async {
-    users.doc(_user!.uid).update({"name": _nameController.text}).then(
-      (value) {
-        Logger().i("User Updated");
-      },
-    );
+  Future<void> updateProfile(BuildContext context) async {
+    CustomDialog.show(context);
+    if (_image.path != "") {
+      String imageUrl = await StorageController().uploadImage(_image);
+
+      users.doc(_user!.uid).update(
+          {"name": _nameController.text, "userImage": imageUrl}).then((value) {
+        CustomDialog.toast(context, "User Updated");
+        CustomDialog.dismiss(context);
+      });
+    } else {
+      users.doc(_user!.uid).update({"name": _nameController.text}).then(
+        (value) {
+          CustomDialog.dismiss(context);
+          Logger().i("User Updated");
+        },
+      );
+    }
   }
 
   void setUserName(String name) {
@@ -85,9 +96,5 @@ class UserProvider extends ChangeNotifier {
     } else {
       Logger().e("Try Again");
     }
-  }
-
-  Future<void> uploadUserImage() async {
-    StorageController().uploadImage(_image);
   }
 }

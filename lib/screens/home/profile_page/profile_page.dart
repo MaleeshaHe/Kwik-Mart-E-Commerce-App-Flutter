@@ -4,6 +4,7 @@ import 'package:kwik_mart/components/custom_poppins_text.dart';
 import 'package:kwik_mart/components/custom_text_field.dart';
 import 'package:kwik_mart/controllers/auth_controller.dart';
 import 'package:kwik_mart/providers/user_provider.dart';
+import 'package:kwik_mart/screens/home/admin/add_product.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -62,9 +63,22 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   CustomButton1(
                     ontap: () {
-                      value.updateProfile();
+                      value.updateProfile(context);
                     },
                     text: "Update",
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomButton1(
+                    ontap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AddProduct(),
+                          ));
+                    },
+                    text: "Add Product",
                   ),
                   const SizedBox(
                     height: 15,
